@@ -2,6 +2,7 @@ import express from "express";
 import dbConnect from "./config/dbConnection.js";
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import "dotenv/config";
 
 import authRouter from "./routers/auth.js";
 import profileRouter from "./routers/profile.js";
@@ -9,7 +10,7 @@ import requestRouter from "./routers/request.js";
 import userRouter from "./routers/user.js";
 
 const app = express();
-const port = 4000;
+const port = process.env.PORT;
 
 app.use(
   cors({
@@ -28,7 +29,6 @@ app.use("/", userRouter);
 
 dbConnect().then(() => {
   try {
-    console.log("Sucessfully Connected to Database");
     app.listen(port, () => {
       console.log(`Server sucessfully  listining to port ${port}...`);
     });
