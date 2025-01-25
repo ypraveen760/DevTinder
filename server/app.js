@@ -12,13 +12,13 @@ import userRouter from "./routers/user.js";
 const app = express();
 const port = process.env.PORT;
 
-app.use(
-  cors({
-    origin: "http://16.170.243.171",
-    methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
+// app.use(
+//   cors({
+//     origin: "http://16.170.243.171",
+//     methods: ["GET", "POST", "PATCH", "PUT", "DELETE"],
+//     credentials: true,
+//   })
+// );
 app.use(express.json());
 app.use(cookieParser());
 
